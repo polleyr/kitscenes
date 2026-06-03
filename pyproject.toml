@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kitscenes"
+version = "0.1.0"
+description = "A Python API for KITScenes, a dataset for autonomous driving research."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Richard Schwarzkopf", email = "richard.schwarzkopf@kit.edu" }]
+requires-python = ">=3.8,<3.13"
+dependencies = [
+    "numpy<2.0",
+    "tqdm",
+    "matplotlib",
+    "pyarrow",
+    "scipy",
+    "pyproj",
+    "huggingface_hub",
+]
+
+[project.urls]
+Homepage = "https://github.com/KIT-MRT/kitscenes"
+Repository = "https://github.com/KIT-MRT/kitscenes"
+Documentation = "https://github.com/KIT-MRT/kitscenes#readme"
+"Dataset" = "https://huggingface.co/datasets/KIT-MRT/KITScenes-Multimodal"
+
+[project.optional-dependencies]
+map = [
+    "lanelet2 @ file:res/ml_converter_wheels/lanelet2-1.2.2-cp38-cp38-manylinux_2_27_x86_64.whl ; python_version == '3.8'",
+    "lanelet2 @ file:res/ml_converter_wheels/lanelet2-1.2.2-cp39-cp39-manylinux_2_26_x86_64.manylinux_2_27_x86_64.whl ; python_version == '3.9'",
+    "lanelet2 @ file:res/ml_converter_wheels/lanelet2-1.2.2-cp310-cp310-manylinux_2_31_x86_64.whl ; python_version == '3.10'",
+    "lanelet2 @ file:res/ml_converter_wheels/lanelet2-1.2.2-cp311-cp311-manylinux_2_31_x86_64.whl ; python_version == '3.11'",
+    "lanelet2 @ file:res/ml_converter_wheels/lanelet2-1.2.2-cp312-cp312-manylinux_2_31_x86_64.whl ; python_version == '3.12'",
+]
+viz = [
+    "plotly",
+    "opencv-python-headless<4.10",
+    "pillow",
+    "cairosvg",
+    "piexif",
+]
+pipeline = [
+    "pypcd4",
+]
+mount = [
+    "ratarmount",
+]
+dev = [
+    "pytest",
+]
+all = [
+    "kitscenes[map,viz,pipeline,mount,dev]",
+]
+
+[tool.setuptools.packages.find]
+include = [
+    "kitscenes",
+    "kitscenes.*",
+]
+
+[tool.setuptools.package-data]
+kitscenes = ["split/generated_splits/default_geo_split_v1_0/*.txt"]
