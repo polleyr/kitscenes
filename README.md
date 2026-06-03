@@ -8,7 +8,7 @@ Python API for the [KITScenes Multimodal](https://huggingface.co/datasets/KIT-MR
 
 > **Early release.** KITScenes Multimodal is published on HuggingFace at version **1.0.x**. The on-disk schema is in place, but files, annotations, splits, and documentation may still change. For final benchmark reporting, please wait for a **more stable** public release.
 
-<video src="https://huggingface.co/datasets/immel-f/KITScenes-Multimodal-Sample-Video/resolve/main/teaser_combined_for_huggingface.mp4" controls width="100%"></video>
+![Map labels and LiDAR reprojected into ring cameras](res/sample_image.webp)
 
 *Reprojection of HD map labels into 6 of the 9 cameras, with LiDAR points reprojected into the rear cameras.*
 
